@@ -5,5 +5,14 @@ package com.thoughtworks;
  */
 public interface Item {
 
-    boolean matches(String query);
+    boolean matchesForReturn(String query);
+    boolean matchesForCheckout(String query);
+
+    void returnItem();
+    void checkoutItem();
+
+    public void printWithoutAvailability(int counter);
+    public void printWithAvailability(int counter);
+
+    public boolean checkAvailability();
 }

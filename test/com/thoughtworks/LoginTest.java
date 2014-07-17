@@ -20,5 +20,4 @@ public class LoginTest {
         Login login=new Login();
         assertEquals(2,login.authenticate("898-6666","abcd"));
     }
-
 }

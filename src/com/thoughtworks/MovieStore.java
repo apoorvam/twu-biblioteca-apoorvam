@@ -1,14 +1,15 @@
-package com.thoughtworks;
+/*package com.thoughtworks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;*/
 
 /**
  * Created by apoorvam on 7/15/14.
  */
+/*
 public class MovieStore {
     public List<Movies> movieList = new ArrayList<Movies>();
 
@@ -51,8 +52,7 @@ public class MovieStore {
         System.out.println("\n-------------------------------------------------------------------------------------");
         for (Movies movie : movieList) {
             if (movie.available == true) {
-                System.out.format((counter++) + ".         " + "%-30s%-20d%-20s%-20d", movie.movieName, movie.movieYear, movie.movieDirector,movie.movieRating);
-                System.out.println();
+                movie.print(counter++);
             }
         }
         System.out.println("-------------------------------------------------------------------------------------");
@@ -96,3 +96,4 @@ public class MovieStore {
         return false;
     }
 }
+*/

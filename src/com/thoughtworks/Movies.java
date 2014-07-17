@@ -22,7 +22,37 @@ public class Movies implements Item {
     }
 
     @Override
-    public boolean matches(String query) {
-        return this.movieName.equals(query) && this.available;
+    public boolean matchesForCheckout(String query) {
+        return this.movieName.equalsIgnoreCase(query) && this.available;
     }
+
+    @Override
+    public boolean matchesForReturn(String query) {
+        return this.movieName.equalsIgnoreCase(query) && !(this.available);
+    }
+
+    @Override
+    public void returnItem() {
+        this.available = true;
+    }
+
+    @Override
+    public void checkoutItem() { this.available=false; }
+    @Override
+    public void printWithoutAvailability(int counter){
+        System.out.format(counter + ".         " + "%-30s%-20d%-20s%-20d", this.movieName, this.movieYear, this.movieDirector, this.movieRating);
+        System.out.println();
+    }
+    @Override
+    public void printWithAvailability(int counter){
+        System.out.format(counter+".         " + "%-30s%-20d%-20s%-20d%-20s", this.movieName, this.movieYear, this.movieDirector,this.movieRating,(this.available == true) ? "Yes" : "No");
+        System.out.println();
+    }
+
+    @Override
+    public boolean checkAvailability() {
+        if(this.available == true) return true;
+        return false;
+    }
+
 }
