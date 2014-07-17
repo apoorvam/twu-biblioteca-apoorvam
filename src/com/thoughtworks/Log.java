@@ -15,7 +15,7 @@ public class Log {
         Iterator it = logbook.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pairs = (Map.Entry)it.next();
-            System.out.format("%-30s%-20s",pairs.getKey(),pairs.getValue()+"\n");
+            System.out.format("%-25s%10s",pairs.getKey(),pairs.getValue()+"\n");
         }
     }
 
