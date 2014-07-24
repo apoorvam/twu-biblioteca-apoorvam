@@ -24,11 +24,9 @@ public class Menu {
         System.out.println("10.Logout");
         System.out.println("11.Quit");
         System.out.println("\nEnter your choice:");
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-        int input=Integer.parseInt(br.readLine());
-        ///??
-        return input;
+
+        ReadInput readInput=new ReadInput();
+        int optionChose=readInput.readValidInput();
+        return optionChose;
     }
-
-
 }
