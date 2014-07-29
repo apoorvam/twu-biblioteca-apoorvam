@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by apoorvam on 7/15/14.
  */
-public class MovieStoreTest {
+public class LibraryMoviesTest {
     Library moviesT=new Library();
     Login login= new Login();
 

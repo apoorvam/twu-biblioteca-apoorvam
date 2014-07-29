@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LibraryTest {
+public class LibraryBooksTest {
 
 
     Library booksT=new Library();    //one of the instances of Library to separate books and movies

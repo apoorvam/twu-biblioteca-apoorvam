@@ -42,7 +42,6 @@ public class Books implements Item {
         return this.bookTitle.equalsIgnoreCase(query) && !(this.available);
     }
 
-
     @Override
     public void printWithoutAvailability(int counter) {
         System.out.format(counter + ".     " + "%-30s%-30s%-6d", this.bookTitle, this.bookAuthor, this.bookPublicationYear);
