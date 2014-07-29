@@ -20,4 +20,20 @@ public class LoginTest {
         Login login=new Login();
         assertEquals(2,login.authenticate("898-6666","abcd"));
     }
+    @Test
+    public void AuthenticationWithSpaces() throws Exception{
+        Login login=new Login();
+        assertEquals(2,login.authenticate("898-66 6 6","abcd"));
+    }
+    @Test
+    public void AuthenticationWithNoHyphen() throws Exception{
+        Login login=new Login();
+        assertEquals(2,login.authenticate("6666666","abcd"));
+    }
+    @Test
+    public void AuthenticationWithWrongIdHavingChars() throws Exception{
+        Login login=new Login();
+        assertEquals(2,login.authenticate("helloall","abcd"));
+    }
+
 }

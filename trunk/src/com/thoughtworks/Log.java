@@ -7,7 +7,10 @@ import java.util.*;
  */
 public class Log {
 
-    private static Map<String,String> logbook=new HashMap<String,String>();
+    private Map<String,String> logbook=new HashMap<String,String>();
+
+    private static Log _instance;
+
 
     public void show() {
         System.out.println("Item                     Library ID");
@@ -27,5 +30,12 @@ public class Log {
 
     public void makeEntry(String itemToBeCheckedOut, String currentUserId) {
         logbook.put(itemToBeCheckedOut,currentUserId);
+    }
+
+    public static Log get_instance(){
+        if(null== _instance) {
+            _instance = new Log();
+        }
+        return _instance;
     }
 }

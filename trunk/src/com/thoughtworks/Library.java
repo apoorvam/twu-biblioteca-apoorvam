@@ -10,40 +10,15 @@ import java.util.List;
 public class Library {
     public List<Item> items = new ArrayList<Item>();
     Login login = new Login();
-    Log log=new Log();
+    Log log=Log.get_instance();
     int res=1;
-
-    public int listAvailableBooks() {
-        int counter = 1;
-        System.out.format("Sl.No%15s%30s%30s", "Title", "Author", "Publication Year");
-        System.out.println("\n-------------------------------------------------------------------------------------");
-        for (Item item : items) {
-            if (item.checkAvailability()) {
-                item.printWithoutAvailability(counter++);
-            }
-        }
-        System.out.println("---------------------------------------------------------------------------------------");
-        return counter - 1;
-    }
-    public int listAvailableMovies() {
-        int counter = 1;
-        System.out.format("Sl.No%15s%25s%25s%15s", "MovieName", "Year", "Director", "Rating");
-        System.out.println("\n-------------------------------------------------------------------------------------");
-        for (Item item : items) {
-            if (item.checkAvailability()) {
-                item.printWithoutAvailability(counter++);
-            }
-        }
-        System.out.println("---------------------------------------------------------------------------------------");
-        return counter-1;
-    }
 
     public int checkoutItem(String itemToBeCheckedOut) throws IOException {
         if ((res=login.allowUserToLogin())== 0) {
-            for (Item bookInLibrary : items) {
-                if (bookInLibrary.matchesForCheckout(itemToBeCheckedOut)) {
-                    bookInLibrary.checkoutItem();
-                    log.makeEntry(itemToBeCheckedOut, login.currentUserId);
+            for (Item itemInLibrary : items) {
+                if (itemInLibrary.matchesForCheckout(itemToBeCheckedOut)) {
+                    itemInLibrary.checkoutItem();
+                    log.makeEntry(itemToBeCheckedOut, login.getCurrentUserId());
                     return 0;
                 }
             }
@@ -54,10 +29,10 @@ public class Library {
 
     public int returnItem(String itemToBeReturned) {
         if((res=login.allowUserToLogin())==0) {
-            for (Item s : items) {
-                if (s.matchesForReturn(itemToBeReturned)) {
-                    log.removeEntry(itemToBeReturned, login.currentUserId);
-                    s.returnItem();
+            for (Item itemInLibrary : items) {
+                if (itemInLibrary.matchesForReturn(itemToBeReturned)) {
+                    log.removeEntry(itemToBeReturned, login.getCurrentUserId());
+                    itemInLibrary.returnItem();
                     return 0;
                 }
             }
@@ -84,5 +59,29 @@ public class Library {
         }
         System.out.println("---------------------------------------------------------------------------------------------------------------");
         return counter - 1;
+    }
+    public int listAvailableBooks() {
+        int counter = 1;
+        System.out.format("Sl.No%15s%30s%30s", "Title", "Author", "Publication Year");
+        System.out.println("\n-------------------------------------------------------------------------------------");
+        for (Item item : items) {
+            if (item.checkAvailability()) {
+                item.printWithoutAvailability(counter++);
+            }
+        }
+        System.out.println("---------------------------------------------------------------------------------------");
+        return counter - 1;
+    }
+    public int listAvailableMovies() {
+        int counter = 1;
+        System.out.format("Sl.No%15s%25s%25s%15s", "MovieName", "Year", "Director", "Rating");
+        System.out.println("\n-------------------------------------------------------------------------------------");
+        for (Item item : items) {
+            if (item.checkAvailability()) {
+                item.printWithoutAvailability(counter++);
+            }
+        }
+        System.out.println("---------------------------------------------------------------------------------------");
+        return counter-1;
     }
 }

@@ -9,7 +9,7 @@ public class Login{
     private String librarianId="888-8888";
     private static boolean isLoggedIn=false;
     public static String currentUserId=null;
-    Log log=new Log();
+    Log log=Log.get_instance();
     private Map<String,String> usersList=new HashMap<String, String>();
     private List<UserInfo> users=new ArrayList<UserInfo>();
 
@@ -23,6 +23,8 @@ public class Login{
         users.add(new UserInfo("444-4444","Swathi","swathi@gmail.com","9906785676"));
         users.add(new UserInfo("888-8888","Smith","smith@yahoo.com","7987595676"));
     }
+
+
     int authenticate(String id, String password)
     {
         String passwordExpected;
@@ -107,4 +109,7 @@ public class Login{
         currentUserId="444-4444";
     }
 
+    public String getCurrentUserId() {
+        return currentUserId;
+    }
 }
