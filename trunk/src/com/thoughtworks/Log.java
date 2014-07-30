@@ -15,10 +15,9 @@ public class Log {
     public void show() {
         System.out.println("Item                     Library ID");
         System.out.println("------------------------------------");
-        Iterator it = logbook.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pairs = (Map.Entry)it.next();
-            System.out.format("%-25s%10s",pairs.getKey(),pairs.getValue()+"\n");
+        for (Object o : logbook.entrySet()) {
+            Map.Entry pairs = (Map.Entry) o;
+            System.out.format("%-25s%10s", pairs.getKey(), pairs.getValue() + "\n");
         }
     }
 
