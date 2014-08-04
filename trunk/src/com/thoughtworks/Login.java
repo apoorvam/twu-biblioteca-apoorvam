@@ -37,7 +37,7 @@ public class Login {
 
 
     public int allowUserToLogin() {
-        if (isLoggedIn == true)
+        if (isLoggedIn)
             return 0;
         String id, password;
         id = takeInputId();
@@ -61,19 +61,17 @@ public class Login {
     private String takeInputPassword() {
         System.out.println("Password:");
         Scanner input = new Scanner(System.in);
-        String pswd = input.nextLine();
-        return pswd;
+        return input.nextLine();
     }
 
     private String takeInputId() {
         System.out.println("Library number:");
         Scanner input = new Scanner(System.in);
-        String id = input.nextLine();
-        return id;
+        return input.nextLine();
     }
 
     public void showUserInfo() {
-        if (isLoggedIn == true) {
+        if (isLoggedIn) {
             for (UserInfo i : users) {
                 if (i.libraryId.equals(currentUserId))
                     i.printAllInfo();
@@ -84,7 +82,7 @@ public class Login {
     }
 
     public void showLogBook() {
-        if (isLoggedIn == true && currentUserId.equals(librarianId))
+        if (isLoggedIn && currentUserId.equals(librarianId))
             log.show();
         else
             System.out.println("You cannot see this.");
@@ -105,8 +103,6 @@ public class Login {
     }
 
     public boolean isUserLoggedIn() {
-        if(isLoggedIn==true)
-            return true;
-        return false;
+        return isLoggedIn;
     }
 }

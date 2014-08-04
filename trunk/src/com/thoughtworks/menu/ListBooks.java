@@ -16,12 +16,11 @@ public class ListBooks implements Action {
         books = booksList;
     }
 
-    private Login login = new Login();
     InputOutputStatements ioStatements = new InputOutputStatements();
 
     @Override
     public boolean canHandle(int option) {
-        return Arrays.asList(1,3).contains(option);
+        return Arrays.asList(1,3,5).contains(option);
     }
 
     @Override
@@ -31,6 +30,9 @@ public class ListBooks implements Action {
         else if(option==3){
            books.listAvailableBooks();
            ioStatements.outputForCheckout(books.checkoutItem(ioStatements.inputForCheckout("book")), "book");
+        }
+        else if(option==5){
+            ioStatements.outputForReturn(books.returnItem(ioStatements.inputForReturn("book")), "book");
         }
     }
 }
