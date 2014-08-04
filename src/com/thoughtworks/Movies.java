@@ -10,9 +10,6 @@ public class Movies implements Item {
     public int movieRating;
     public boolean available;
 
-    Movies() {
-    }
-
     Movies(String movieName, int movieYear, String movieDirector, int movieRating, boolean available) {
         this.movieName = movieName;
         this.movieYear = movieYear;
@@ -45,14 +42,13 @@ public class Movies implements Item {
     }
     @Override
     public void printWithAvailability(int counter){
-        System.out.format(counter+".         " + "%-30s%-20d%-20s%-20d%-20s", this.movieName, this.movieYear, this.movieDirector,this.movieRating,(this.available == true) ? "Yes" : "No");
+        System.out.format(counter+".         " + "%-30s%-20d%-20s%-20d%-20s", this.movieName, this.movieYear, this.movieDirector,this.movieRating,(this.available) ? "Yes" : "No");
         System.out.println();
     }
 
     @Override
     public boolean checkAvailability() {
-        if(this.available == true) return true;
-        return false;
+        return this.available;
     }
 
 }

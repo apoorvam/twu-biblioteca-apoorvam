@@ -10,7 +10,8 @@ import java.io.InputStreamReader;
 public class ReadInput {
 
     public int readValidInput() {
-        int optionChosen=99;
+        int DEFAULT_OPTION_CHOSEN=99;
+        int optionChosen=DEFAULT_OPTION_CHOSEN;
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 
         try {

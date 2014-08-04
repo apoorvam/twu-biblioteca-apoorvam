@@ -16,12 +16,11 @@ public class ListMovies implements Action {
         movies=moviesList;
     }
 
-    private Login login = new Login();
     private InputOutputStatements ioStatements = new InputOutputStatements();
 
     @Override
     public boolean canHandle(int option) {
-        return Arrays.asList(2,4).contains(option);
+        return Arrays.asList(2,4,6).contains(option);
     }
 
     @Override
@@ -31,6 +30,9 @@ public class ListMovies implements Action {
         else if(option==4){
             movies.listAvailableMovies();
             ioStatements.outputForCheckout(movies.checkoutItem(ioStatements.inputForCheckout("movie")), "movie");
+        }
+        else if(option==6){
+            ioStatements.outputForReturn(movies.returnItem(ioStatements.inputForReturn("movie")), "movie");
         }
     }
 }

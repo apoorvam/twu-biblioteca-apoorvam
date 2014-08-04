@@ -26,7 +26,6 @@ public class Menu {
         System.out.println("\nEnter your choice:");
 
         ReadInput readInput=new ReadInput();
-        int optionChose=readInput.readValidInput();
-        return optionChose;
+        return readInput.readValidInput();
     }
 }

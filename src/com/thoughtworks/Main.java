@@ -30,16 +30,15 @@ public class Main {
 
 
         List<Action> menuActions = asList(
-                (Action) new ListBooks(books),
-                (Action) new ListMovies(movies),
-                (Action) new ReturnBooks(books),
-                (Action) new ReturnMovies(movies),
-                (Action) new LoginActions()
+                 new ListBooks(books),
+                 new ListMovies(movies),
+                 new LoginActions()
         );
 
         while (true) {
 
             int optionChosen = Menu.showMenu();
+
             if(optionChosen==QUIT_OPTION) {
                 System.out.println("You chose to quit the Biblioteca");
                 return;
@@ -53,40 +52,5 @@ public class Main {
                 }
             }
         }
-
-            /*switch (optionChosen) {
-                case 1:
-                    books.listAllBooks();
-                    break;
-                case 2:
-                    movies.listAllMovies();
-                    break;
-                case 3:
-                    books.listAvailableBooks();
-                    outputForCheckout(books.checkoutItem(inputForCheckout("book")), "book");
-                    break;
-                case 4:
-                    movies.listAvailableMovies();
-                    outputForCheckout(movies.checkoutItem(inputForCheckout("movie")), "movie");
-                    break;
-                case 5://return a book
-                    outputForReturn(books.returnItem(inputForReturn("book")), "book");
-                    break;
-                case 6:// return movie
-                    outputForReturn(movies.returnItem(inputForReturn("movie")), "movie");
-                    break;
-                case 7:
-                    login.allowUserToLogin();
-                    break;
-                case 8:
-                    login.showUserInfo();
-                    break;
-                case 9:
-                    login.showLogBook();
-                    break;
-                case 10:
-                    login.logout();
-                    break;*/
-
     }
 }
