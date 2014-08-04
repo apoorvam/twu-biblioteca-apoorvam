@@ -18,7 +18,7 @@ public class Login {
 
         users.add(new UserInfo("666-6666", "John", "john@gmail.com", "8906785676"));
         users.add(new UserInfo("444-4444", "Swathi", "swathi@gmail.com", "9906785676"));
-        users.add(new UserInfo("888-8888", "Smith", "smith@yahoo.com", "7987595676"));
+        users.add(new UserInfo("888-8888", "Smith(Librarian)", "smith@yahoo.com", "7987595676"));
     }
 
 
@@ -102,5 +102,11 @@ public class Login {
 
     public String getCurrentUserId() {
         return currentUserId;
+    }
+
+    public boolean isUserLoggedIn() {
+        if(isLoggedIn==true)
+            return true;
+        return false;
     }
 }

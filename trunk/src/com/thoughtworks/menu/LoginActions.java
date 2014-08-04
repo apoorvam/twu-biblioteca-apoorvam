@@ -17,8 +17,12 @@ public class LoginActions implements Action {
 
     @Override
     public void handle(int option) {
+        boolean isUserAlreadyLoggedIn=false;
         switch (option) {
             case 7:
+                if(isUserAlreadyLoggedIn!=login.isUserLoggedIn())
+                    System.out.println("You are already Logged in.");
+                else
                 login.allowUserToLogin();
                 break;
             case 8:

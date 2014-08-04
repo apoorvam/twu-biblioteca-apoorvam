@@ -1,19 +1,20 @@
 package com.thoughtworks;
 
-import com.thoughtworks.menu.Action;
-import com.thoughtworks.menu.ListAllBooks;
+import com.thoughtworks.menu.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 
 import static java.util.Arrays.asList;
 
 public class Main {
 
+
     public static void main(String[] args) throws IOException {
+
         System.out.println(" ** Welcome to Biblioteca **");
+
+        int QUIT_OPTION=11;
 
         Library books = new Library();
         Library movies = new Library();
@@ -28,19 +29,32 @@ public class Main {
         movies.items.add(new Movies("Krish", 2013, "Rakesh Roshan", 10, true));
 
 
-        List<Action> menuActions = asList((Action) new ListAllBooks(books));
+        List<Action> menuActions = asList(
+                (Action) new ListBooks(books),
+                (Action) new ListMovies(movies),
+                (Action) new ReturnBooks(books),
+                (Action) new ReturnMovies(movies),
+                (Action) new LoginActions()
+        );
 
         while (true) {
 
             int optionChosen = Menu.showMenu();
+            if(optionChosen==QUIT_OPTION) {
+                System.out.println("You chose to quit the Biblioteca");
+                return;
+            }
+            else if(optionChosen<1||optionChosen>11)
+                System.out.println("Select a valid option!");
 
             for (Action menuAction : menuActions) {
                 if (menuAction.canHandle(optionChosen)) {
                     menuAction.handle(optionChosen);
                 }
             }
+        }
 
-            switch (optionChosen) {
+            /*switch (optionChosen) {
                 case 1:
                     books.listAllBooks();
                     break;
@@ -72,47 +86,7 @@ public class Main {
                     break;
                 case 10:
                     login.logout();
-                    break;
-                case 11:
-                    System.out.println("You chose to quit the Biblioteca");
-                    return;
-                default:
-                    System.out.println("Select a valid option!");
-            }
-        }
+                    break;*/
 
     }
-
-
-    private static void outputForReturn(int returnValue, String item) {
-        if (returnValue == 0)
-            System.out.println("Thank you for returning the " + item);
-        else if (returnValue == 1)
-            System.out.println("This is not a valid " + item + " to return");
-        else if (returnValue == 2)
-            System.out.println("Login to perform this action");
-    }
-
-    private static String inputForCheckout(String item) throws IOException {
-        System.out.println("Enter the " + item + " name to be checked out:");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
-    }
-
-    private static String inputForReturn(String item) throws IOException {
-        System.out.println("Enter the " + item + " name to be returned:");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
-    }
-
-    private static void outputForCheckout(int returnValue, String item) {
-        if (returnValue == 0)
-            System.out.println("Thank you! Enjoy the " + item);
-        else if (returnValue == 1)
-            System.out.println("That " + item + " is not available");
-        else if (returnValue == 2)
-            System.out.println("Login to perform this action");
-    }
-
-
 }

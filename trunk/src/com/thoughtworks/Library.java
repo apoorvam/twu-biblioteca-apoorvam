@@ -52,12 +52,12 @@ public class Library {
     }
     public int listAllMovies() {
         int counter = 1;
-        System.out.format("Sl.No%15s%25s%25s%15s%25s", "MovieName", "Year", "Director", "Rating", "Availability");
+        System.out.format("Sl.No%15s%25s%25s%15s%20s", "MovieName", "Year", "Director", "Rating", "Availability");
         System.out.println("\n------------------------------------------------------------------------------------------------------------");
         for (Item item : items) {
             item.printWithAvailability(counter++);
         }
-        System.out.println("---------------------------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------------------------------");
         return counter - 1;
     }
     public int listAvailableBooks() {
@@ -81,7 +81,7 @@ public class Library {
                 item.printWithoutAvailability(counter++);
             }
         }
-        System.out.println("---------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------------");
         return counter-1;
     }
 }
