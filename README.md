@@ -1,7 +1,9 @@
 # twu-biblioteca-apoorvam
 [![Gauge Badge](https://cdn.rawgit.com/apoorvam/twu-biblioteca-apoorvam/master/Gauge_Badge.svg)](http://getgauge.io)
 
-[![Gauge Badge](https://github.com/apoorvam/twu-biblioteca-apoorvam/blob/master/Gauge_Badge.svg)](http://getgauge.io)
+[![Gauge Badge](https://img.shields.io/badge/USES-Gauge-yellow.svg)](http://getgauge.io)
+
+[![Gauge Badge](https://img.shields.io/badge/Tests%20Use-Gauge-yellow.svg)](http://getgauge.io)
 
 ##Using Gauge in your project? Add a badge!
 
